@@ -52,6 +52,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
                     process.env.REACT_APP_SERVER+`/users/${_id}/${friendId}`,
                     {
                         method: "PATCH",
+                        credentials: 'include',
                         headers: {
                             Authorization: `Bearer ${token}`,
                             'Content-Type': 'application/json',
@@ -74,6 +75,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
                     process.env.REACT_APP_SERVER+`/users/${friendId}/notifications`,
                     {
                         method: "POST",
+                        credentials: 'include',
                         headers: {
                             Authorization: `Bearer ${token}`,
                             'Content-Type': 'application/json',
@@ -94,6 +96,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
         try {
             const response = await fetch(process.env.REACT_APP_SERVER+`/api/conversations/find/${friendId}/${_id}`, {
                 method: "GET",
+                credentials: 'include',
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -121,6 +124,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
     
             const response = await fetch(process.env.REACT_APP_SERVER+`/api/conversations/`, {
                 method: "POST",
+                credentials: 'include',
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -160,6 +164,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
         try {
             const response = await fetch(process.env.REACT_APP_SERVER+`/api/messages`, {
                 method: "POST",
+                credentials: 'include',
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -204,6 +209,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
         try {
           const response = await fetch(process.env.REACT_APP_SERVER+`/posts/${postId}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
@@ -236,6 +242,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, admin, postId, visi
         const getFriendProfile = async () => {
             const response = await fetch(process.env.REACT_APP_SERVER+`/users/${friendId}`, {
               method: "GET",
+              credentials: 'include',
               headers: { Authorization: `Bearer ${token}` },
             });
             const data = await response.json();

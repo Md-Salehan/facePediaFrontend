@@ -19,6 +19,7 @@ export default function Conversation({ conversation, currentUser, isOnline }) {
     const fetchUserData = async () => {
       try {
         const response = await fetch(process.env.REACT_APP_SERVER+`/users/${friendId}`, {
+          credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -34,6 +35,7 @@ export default function Conversation({ conversation, currentUser, isOnline }) {
     const fetchUnreadCount = async () => {
       try {
         const unreadResponse = await fetch(process.env.REACT_APP_SERVER+`/api/messages/unread/${conversation._id}/${currentUser._id}`, {
+          credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -49,6 +51,7 @@ export default function Conversation({ conversation, currentUser, isOnline }) {
     const fetchLastMessage = async () => {
       try {
         const response = await fetch(process.env.REACT_APP_SERVER+`/api/messages/${conversation._id}`, {
+          credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
           },

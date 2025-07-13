@@ -65,6 +65,7 @@ const Form = () => {
       process.env.REACT_APP_SERVER+"/auth/register",
       {
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json", // Correct capitalization
         },
@@ -84,6 +85,7 @@ const Form = () => {
   const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch(process.env.REACT_APP_SERVER+"/auth/login", {
       method: "POST",
+      credentials: 'include',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });

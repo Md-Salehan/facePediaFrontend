@@ -13,6 +13,7 @@ export default function SearchedConversation({ conversation, currentUser, isOnli
       try {
         const response = await fetch(process.env.REACT_APP_SERVER+`/api/conversations/find/${currentUser._id}/${conversation._id}`, {
           method: "GET",
+          credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -33,6 +34,7 @@ export default function SearchedConversation({ conversation, currentUser, isOnli
       const fetchUnreadCount = async (convoId) => {
         try {
           const unreadResponse = await fetch(process.env.REACT_APP_SERVER+`/api/messages/unread/${convoId}/${currentUser}`, {
+            credentials: 'include',
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'application/json',
@@ -48,6 +50,7 @@ export default function SearchedConversation({ conversation, currentUser, isOnli
       const fetchLastMessage = async (convoId) => {
         try {
           const response = await fetch(process.env.REACT_APP_SERVER+`/api/messages/${convoId}`, {
+            credentials: 'include',
             headers: {
               Authorization: `Bearer ${token}`,
             },

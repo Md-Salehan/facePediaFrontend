@@ -37,6 +37,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
     try {
       const response = await fetch(process.env.REACT_APP_SERVER+`/api/conversations/find/${currentId}/${user._id}`, {
         method : "GET",
+        credentials: 'include',
         headers: {
           
           Authorization: `Bearer ${token}`,

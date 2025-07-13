@@ -16,6 +16,7 @@ export default function Message({ message, own, sender, arrivalMessage, isGroup 
       try {
         const response = await fetch(process.env.REACT_APP_SERVER+`/users/${sender}`, {
           method: 'GET',
+          credentials: 'include',
           headers: { Authorization: `Bearer ${token}` },
         });
 
